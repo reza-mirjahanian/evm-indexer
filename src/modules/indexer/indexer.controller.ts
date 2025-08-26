@@ -2,13 +2,11 @@ import {
   Controller,
   Get,
   Param,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { IndexerService } from './indexer.service';
 import {
-  GetBlockNumberByTimestampDto,
+  GetEthBalanceByTimestampDto,
   GetERC20TransfersDto,
   GetTransactionsDto,
 } from './dto/get-transactions.dto';
@@ -74,7 +72,6 @@ export class IndexerController {
     status: 200,
     description: 'Operation done successfully.',
   })
-  @UsePipes(new ValidationPipe({ transform: true }))
   @Throttle({ default: { limit: 60, ttl: 60000 } })
   async getListOfNormalTransactionsByAddress(
     @Param() params: GetTransactionsDto, // Maybe Use @Query
@@ -143,7 +140,6 @@ export class IndexerController {
     status: 200,
     description: 'Operation done successfully.',
   })
-  @UsePipes(new ValidationPipe({ transform: true }))
   @Throttle({ default: { limit: 60, ttl: 60000 } })
   async getListOfERC20TokenTransferEventsByAddress(
     @Param() params: GetERC20TransfersDto,
@@ -158,9 +154,10 @@ export class IndexerController {
     );
   }
 
-  @Get('/block/numberByTimestamp/:timestamp/:address/:closest')
+  @Get('/account/eth-balance/:timestamp/:address/:closest')
   @ApiOperation({
-    summary: 'Get block number by timestamp',
+    summary:
+      'ETH that was available on the given address at time of the given timestamp',
   })
   @ApiParam({
     name: 'timestamp',
@@ -188,11 +185,8 @@ export class IndexerController {
     description: 'Operation done successfully.',
   })
   @Throttle({ default: { limit: 60, ttl: 60000 } })
-  @UsePipes(new ValidationPipe({ transform: true }))
-  async getBlockNumberByTimestamp(
-    @Param() params: GetBlockNumberByTimestampDto,
-  ) {
-    return this.indexerService.getBlockNumberByTimestamp(
+  async getAddressEthByTimestamp(@Param() params: GetEthBalanceByTimestampDto) {
+    return this.indexerService.getEthBalanceByTimestamp(
       params.timestamp,
       params.address,
       params.closest,

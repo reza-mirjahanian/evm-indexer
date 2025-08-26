@@ -88,7 +88,7 @@ export enum ClosestType {
   AFTER = 'after',
 }
 
-export class GetBlockNumberByTimestampDto {
+export class GetEthBalanceByTimestampDto {
   @Type(() => Number)
   @IsInt()
   @Min(0)

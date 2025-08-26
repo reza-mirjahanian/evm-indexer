@@ -88,7 +88,7 @@ export class IndexerRepository {
   }
 
   //https://docs.etherscan.io/api-endpoints/blocks#get-block-number-by-timestamp
-  async getBlockNumberByTimestamp(
+  async getEthBalanceByTimestamp(
     timestamp: number,
     address: string,
     closest: 'before' | 'after' = 'before',
@@ -96,7 +96,7 @@ export class IndexerRepository {
     const url = `${ETHERSCAN_BASE_API_URL}&module=block&action=getblocknobytime&timestamp=${timestamp}&closest=${closest}&apikey=${ETHERSCAN_API_KEY}`;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url); //First, find the block number by timestamp.
       if (!response.ok) {
         throw new Error(
           `HTTP error: ${response.status} ${response.statusText}`,

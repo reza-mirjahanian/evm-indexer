@@ -60,14 +60,14 @@ export class IndexerService {
     }
   }
 
-  async getBlockNumberByTimestamp(
+  async getEthBalanceByTimestamp(
     timestamp: number,
     address: string,
     closest: 'before' | 'after' = 'before',
   ) {
     try {
       const { blockNumber, balanceWei, balanceEth, balanceHex } =
-        await this.indexerRepository.getBlockNumberByTimestamp(
+        await this.indexerRepository.getEthBalanceByTimestamp(
           timestamp,
           address,
           closest,
