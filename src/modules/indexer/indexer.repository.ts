@@ -40,12 +40,8 @@ export class IndexerRepository {
         message,
         status,
       }: EtherscanNormalTransactionsListResponse = await response.json();
-      if (status !== '1' || message !== 'OK') {
-        this.logger.error(
-          `Etherscan API error: ${message}. Please check the request parameters and try again.`,
-        );
-        throw new Error(message);
-      }
+      this.logger.debug({message,status})
+
 
       return this.transformTransactions(result);
     } catch (error) {
@@ -74,12 +70,7 @@ export class IndexerRepository {
       }
       const { status, message, result }: EtherscanTokenTransferListResponse =
         await response.json();
-      if (status !== '1' || message !== 'OK') {
-        this.logger.error(
-          `Etherscan API error: ${message}. Please check the request parameters and try again.`,
-        );
-        throw new Error(message);
-      }
+      this.logger.debug({message,status})
       return this.transformTokenTransfers(result);
     } catch (error) {
       this.logger.error('Unexpected error:', error);

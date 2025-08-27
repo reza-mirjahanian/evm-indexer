@@ -35,7 +35,7 @@ export class IndexerController {
   @ApiParam({
     name: 'startblock',
     required: true,
-    description: 'Start block',
+    description: 'Start block , Its important to set the next  startBlock to the block number of the last record - 1',
     example: 22314120,
     type: Number,
   })
@@ -50,7 +50,7 @@ export class IndexerController {
     name: 'page',
     required: true,
     description:
-      'page number , Its important to set the next  startBlock to the block number of the last record - 1',
+      'page number',
     type: Number,
     example: 1,
   })
@@ -103,7 +103,7 @@ export class IndexerController {
   @ApiParam({
     name: 'startblock',
     required: true,
-    description: 'Start block',
+    description: 'Start block , Its important to set the next  startBlock to the block number of the last record - 1',
     example: 9000000,
     type: Number,
   })
@@ -118,7 +118,7 @@ export class IndexerController {
     name: 'page',
     required: true,
     description:
-      'page number , Its important to set the next  startBlock to the block number of the last record - 1',
+      'page number',
     type: Number,
     example: 1,
   })

@@ -12,7 +12,11 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
   const config = new DocumentBuilder()
     .setTitle('EVM Indexer')
     .setDescription('By Reza Mir')
