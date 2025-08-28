@@ -8,15 +8,16 @@
     - [Setup](#-setup)
     - [Running the App](#-️running-the-app)
     - [Testing](#-testing-not-implemented-yet)
-4. [🔗 Swagger UI](#-4--swagger-ui-local-3001--docker-3008-httplocalhost3008docs)
-5. [🛠️ Tech Stack](#️-tech-stack)
+4. [🔗 Swagger UI](#-3--swagger-ui-local-3001--docker-3008)
+5. [🛠️ Tech Stack](#-4-tech-stack)
     - [✅ Done](#-done)
     - [📝 Todo](#-todo)
 6. [📷 Screenshots & Demo](#-5-screenshots-and-demo)
 7. [📄 Extra Info](#-extra-info)
     - [🔍 Indexing On-Chain Data](#-indexing-on-chain-data)
     - [🔄 Ethereum Reorgs After The Merge](#-ethereum-reorgs-after-the-merge)
-    - [⏱️ Ethereum Block Time](#️-ethereum-block-time--12s)
+    - [⏱️ Ethereum Block Time](#-ethereum-block-time--12s)
+
 
 
 ## 🧩 EVM Indexer
@@ -76,11 +77,11 @@ $ pnpm run test:e2e
 # test coverage
 $ pnpm run test:cov
 ```
-## 🔗 4)  **Swagger UI (Local 3001 / Docker 3008):** [http://localhost:3008/docs](http://localhost:3008/docs)
+## 🔗 3)  **Swagger UI (Local 3001 / Docker 3008):** [http://localhost:3008/docs](http://localhost:3008/docs)
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ 4) Tech Stack
 
 * 📌 [NestJS](https://nestjs.com/)
 * 📌 TypeScript
@@ -101,7 +102,6 @@ $ pnpm run test:cov
 
 #### 📝 Todo
 
-* 💡 "No transactions found" returns error 500! - should return 200 with empty array.
 * 💡 Write unit & e2e tests.
 * 💡 Add a **caching layer** (Redis, Memcached).
 * 💡 Implement **API versioning**.
