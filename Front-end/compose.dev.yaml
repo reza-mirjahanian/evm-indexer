@@ -5,12 +5,12 @@ services:
       context: .                # build from project root
       dockerfile: dev.Dockerfile
 
-    environment:
-      ENV_VARIABLE: ${ENV_VARIABLE}
-      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+#    environment:
+#      ENV_VARIABLE: ${ENV_VARIABLE}
+#      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
 
     env_file:
-      - .env
+      - .docker.env
 
     volumes:
       - .:/app                  #  mount the whole project root
