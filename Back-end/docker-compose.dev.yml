@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  backend-evm-indexer-dev:
+    container_name: backend-evm-indexer-dev
+    build:
+      context: .
+      target: development
+      args:
+        - NODE_ENV=development
+    environment:
+      DATABASE_URL: 'postgresql://user:'
+    restart: always
+    ports:
+      - "3008:3001"
+    expose:
+      - '3307'
+#    depends_on:
+#      - db-postgres-dev

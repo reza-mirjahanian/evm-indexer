@@ -1,0 +1,21 @@
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: .                # build from project root
+      dockerfile: dev.Dockerfile
+
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app                  #  mount the whole project root
+      - /app/node_modules       #  avoid overwriting node_modules inside container
+      - /app/.next              #  avoid overwriting Next.js build cache
+    restart: always
+    ports:
+      - "4000:3000"

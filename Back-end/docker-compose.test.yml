@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  backend-evm-indexer-test:
+    container_name: backend-evm-indexer-test
+    build:
+      context: .
+      target: testing
+      args:
+        - NODE_ENV=test
+    environment:
+      DATABASE_URL: 'postgresql://...'
+#    depends_on:
+#      - db-postgres-test
+
