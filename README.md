@@ -1,5 +1,4 @@
-### Video demo:
-https://drive.google.com/drive/folders/1Je_C6DhTKggl0_5AkyGEOSL19hcjQ-r6?usp=drive_link
+
 
 
 ### EVM Data Viewer
